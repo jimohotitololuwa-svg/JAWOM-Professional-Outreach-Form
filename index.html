@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAWOM Professional Outreach Forms</title>
+
+ <link rel="icon" type="image/x-icon" href="jawom llogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #1e293b 50%,
+        #0c4a6e 100%
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:40px;
+    box-shadow:0 25px 50px rgba(0,0,0,.35);
+}
+
+.logo-area{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo-area img{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.logo-area h1{
+    color:#fff;
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.logo-area p{
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    color:#fff;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+input,
+select{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+input:focus,
+select:focus{
+    background:rgba(255,255,255,.18);
+    box-shadow:0 0 0 3px rgba(20,184,166,.25);
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+select option{
+    color:#000;
+}
+
+.submit-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:#14b8a6;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+}
+
+.submit-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.success-box{
+    display:none;
+    text-align:center;
+}
+
+.success-icon{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.success-box h2{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.success-box p{
+    color:#cbd5e1;
+    margin-bottom:25px;
+}
+
+.action-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.action-buttons button{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.add-btn{
+    background:#14b8a6;
+    color:#fff;
+}
+
+.finish-btn{
+    background:#fff;
+    color:#0f172a;
+}
+
+/* LOADER */
+
+.loader-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(8,17,31,.96);
+    backdrop-filter:blur(10px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+.loader-logo{
+    width:130px;
+    height:130px;
+    object-fit:contain;
+    animation:spin 1.2s linear infinite;
+}
+
+.loader-title{
+    color:#fff;
+    margin-top:25px;
+    font-size:22px;
+    font-weight:700;
+}
+
+.loader-sub{
+    color:#94a3b8;
+    margin-top:10px;
+    text-align:center;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@media(max-width:600px){
+
+.card{
+    padding:25px;
+}
+
+.logo-area h1{
+    font-size:22px;
+}
+
+.action-buttons{
+    flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div id="formSection">
+
+<div class="logo-area">
+<img src="jawom llogo.png" alt="JAWOM Logo">
+<h1>JAWOM Professional Outreach Forms</h1>
+<p>Please complete the form below</p>
+</div>
+
+<form id="jawomForm">
+
+<div class="form-group">
+<label>Title</label>
+<input
+type="text"
+id="title"
+placeholder="Enter Title"
+required>
+</div>
+
+<div class="form-group">
+<label>Name</label>
+<input
+type="text"
+id="name"
+placeholder="Enter Full Name"
+required>
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input
+type="tel"
+id="phone"
+inputmode="numeric"
+pattern="[0-9]*"
+maxlength="11"
+placeholder="080xxxxxxxx"
+required>
+</div>
+
+<div class="form-group">
+<label>Category</label>
+
+<select id="category" required>
+
+<option value="">Select Category</option>
+
+<option>Medical</option>
+<option>Admin/HR</option>
+<option>Education/Academia</option>
+<option>Engineering</option>
+<option>Legal Practitioners</option>
+<option>Business</option>
+
+</select>
+
+</div>
+
+<button
+type="submit"
+class="submit-btn">
+Submit Form </button>
+
+</form>
+
+</div>
+
+<div id="successSection" class="success-box">
+
+<div class="success-icon">✅</div>
+
+<h2>Thank You!</h2>
+
+<p>
+Your details have been submitted successfully to JAWOM Professional Outreach Forms.
+</p>
+
+<div class="action-buttons">
+
+<button
+class="add-btn"
+onclick="addNew()">
+Add New Details </button>
+
+<button
+class="finish-btn"
+onclick="finishForm()">
+Finish </button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="loader-overlay" id="loader">
+
+<img
+src="jawom llogo.png"
+class="loader-logo"
+alt="Loading">
+
+<div class="loader-title">
+Submitting Your Details
+</div>
+
+<div class="loader-sub">
+Please wait while the team receives your submission...
+</div>
+
+</div>
+
+<script>
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbycpbk9NEnRxINuuulZhBjJGT-zM0hiwFAhki285vJVbFE-KveehwC9ZE-pvJ1_K_eC/exec";
+
+document
+.getElementById("jawomForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+document.getElementById("loader").style.display="flex";
+
+document.querySelector(".submit-btn").disabled=true;
+
+const data = {
+
+title:
+document.getElementById("title").value,
+
+name:
+document.getElementById("name").value,
+
+phone:
+document.getElementById("phone").value,
+
+category:
+document.getElementById("category").value
+
+};
+
+try{
+
+await fetch(GOOGLE_SCRIPT_URL,{
+method:"POST",
+mode:"no-cors",
+body:JSON.stringify(data)
+});
+
+document.getElementById("loader").style.display="none";
+
+document.getElementById("formSection").style.display="none";
+
+document.getElementById("successSection").style.display="block";
+
+document.querySelector(".submit-btn").disabled=false;
+
+}catch(error){
+
+document.getElementById("loader").style.display="none";
+
+document.querySelector(".submit-btn").disabled=false;
+
+alert("Submission failed. Please try again.");
+
+}
+
+});
+
+function addNew(){
+
+document.getElementById("jawomForm").reset();
+
+document.getElementById("successSection").style.display="none";
+
+document.getElementById("formSection").style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function finishForm(){
+
+document.body.innerHTML = `
+
+<div style="
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#0f172a;
+color:white;
+font-family:Inter,sans-serif;
+padding:20px;
+text-align:center;
+">
+
+<img src="jawom llogo.png" width="120">
+
+<h1 style="margin-top:20px;">
+Thank You
+</h1>
+
+<p style="margin-top:10px;color:#cbd5e1;">
+Your submission has been received successfully.
+</p>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
